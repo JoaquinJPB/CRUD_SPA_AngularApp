@@ -1,38 +1,54 @@
-<div>
-    <mat-grid-list cols="2" rowHeight="2:1">
-        <mat-grid-tile>
-            <form class="example-form city-form">
-                <h1 color="primary">Create City</h1>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Name of the City</mat-label>
-                    <input matInput placeholder="New York">
-                </mat-form-field>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>People</mat-label>
-                    <input matInput placeholder="8,400 millions">
-                </mat-form-field>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Country Associated</mat-label>
-                    <input matInput placeholder="EEUU">
-                </mat-form-field>
-                <div>
-                    <button mat-raised-button color="primary">Create</button>
-                    <button mat-raised-button color="accent">Cancel</button>
-                </div>
-
-            </form>
-    
-        </mat-grid-tile>
-        <mat-grid-tile>
-            2
-        </mat-grid-tile>
-        <mat-grid-tile>
-            3
-        </mat-grid-tile>
-        <mat-grid-tile>
-            4
-        </mat-grid-tile>
-    </mat-grid-list>
-</div>
+<section class="section-form">
+    <div>
+        <form class="example-form city-form">
+            <h1 color="primary">Create City</h1>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Name of the City</mat-label>
+                <input matInput type="text" name="city" [(ngModel)]="name_input" required>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>People</mat-label>
+                <input matInput type="number" name="people" [(ngModel)]="people_input" required>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Country Associated</mat-label>
+                <input matInput type="text" name="country" [(ngModel)]="country_input" required>
+            </mat-form-field>
+            <div>
+                <button mat-raised-button color="primary" (click)="createCity()">Create</button>
+                <button mat-raised-button color="accent">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div>
+        <h1 *ngIf="cities.length === 0">
+            No existe ninguna ciudad
+        </h1>
+        <table *ngIf="cities.length > 0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>City</th>
+                    <th>People</th>
+                    <th>Country</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let city of cities">
+                    <td>{{city.id}}</td>
+                    <td>{{city.name}}</td>
+                    <td>{{city.people}}</td>
+                    <td>{{city.country}}</td>
+                    <td> 
+                        <button mat-icon-button class="example-icon">
+                            <mat-icon (click)="deleteCity(city.id)">delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
 
 
