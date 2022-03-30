@@ -1,0 +1,17 @@
+div{
+    background-color: #212121;
+}
+
+h1{
+    color: #e91e63;
+}
+
+.city-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.city-form div:last-child{
+    display: flex;
+    justify-content: space-between;
+}
