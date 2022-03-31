@@ -74,12 +74,10 @@ export class CityComponent implements OnInit {
   updateView(id: number): void{
     this.update = true;
     this.id_count = id;
-    let oldCity = this.cities.find((city) => city.id === id);
-    if (oldCity) {
-      this.nameUpdate_input = oldCity.name;
-      this.peopleUpdate_input = String(oldCity.people);
-      this.countryUpdate_input = oldCity.country ;
-    }
+    let oldCity = this.cities.find((city) => city.id === id)!;
+    this.nameUpdate_input = oldCity.name;
+    this.peopleUpdate_input = String(oldCity.people);
+    this.countryUpdate_input = oldCity.country ;
   }
 
   disableUpdateView(): void{
@@ -87,13 +85,11 @@ export class CityComponent implements OnInit {
   }
 
   updateCity(id: number): void {
-    let updateCity = this.cities.find((city) => city.id === id);
-    if (updateCity) {
-      updateCity.name = this.nameUpdate_input;
-      updateCity.people = Number(this.peopleUpdate_input);
-      updateCity.country = this.countryUpdate_input;
-      this.disableUpdateView();
-    }
+    let updateCity = this.cities.find((city) => city.id === id)!;
+    updateCity.name = this.nameUpdate_input;
+    updateCity.people = Number(this.peopleUpdate_input);
+    updateCity.country = this.countryUpdate_input;
+    this.disableUpdateView();
   }
 
 }
