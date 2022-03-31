@@ -1,27 +1,17 @@
-# FormSPA
+# CRUD Cities - Joaquin Pastore Barrios
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
+Requisitos:
+- Angular 13.3.2
+- Angular Material 13.3.2
+- Node 16.14.0
 
-## Development server
+Esta aplicacción se basa en un CRUD en SPA (Single Page Applicatio), permite crear, modificar, ver en una tabla y eliminar una ciudad.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Los campos de ciudad son:
+- Nombre de la ciudad
+- Población
+- País asociado
 
-## Code scaffolding
+Comentar también que se hace uso de las herramientas de Angular Material para darle estilo al sitio web, y el ngIf, ngFor y ngModel de Angular para las funciones del CRUD.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Se puede observar su funcionamiento en el siguiente enlace: https://joaquinjpb.github.io/CRUD_SPA_AngularApp/
