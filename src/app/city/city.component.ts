@@ -21,19 +21,19 @@ export class CityComponent implements OnInit {
     {
       id: 1,
       name: "Madrid",
-      people: 350000,
+      people: 3233000,
       country: "Spain"
     },
     {
       id: 2,
       name: "Valencia",
-      people: 100000,
+      people: 791000,
       country: "Spain"
     },
     {
       id: 3,
       name: "Barcelona",
-      people: 250000,
+      people: 1620000,
       country: "Spain"
     },
 
@@ -47,6 +47,8 @@ export class CityComponent implements OnInit {
   nameUpdate_input: string = "";
   peopleUpdate_input: string = "";
   countryUpdate_input: string = "";
+  
+  id_update: number = 0;
 
   constructor() { }
 
@@ -69,8 +71,15 @@ export class CityComponent implements OnInit {
     this.cities = this.cities.filter((city) => city.id != id);
   }
 
-  updateView(): void{
+  updateView(id: number): void{
     this.update = true;
+    this.id_count = id;
+    let oldCity = this.cities.find((city) => city.id === id);
+    if (oldCity) {
+      this.nameUpdate_input = oldCity.name;
+      this.peopleUpdate_input = String(oldCity.people);
+      this.countryUpdate_input = oldCity.country ;
+    }
   }
 
   disableUpdateView(): void{
@@ -79,7 +88,7 @@ export class CityComponent implements OnInit {
 
   updateCity(id: number): void {
     let updateCity = this.cities.find((city) => city.id === id);
-    if (updateCity !== undefined) {
+    if (updateCity) {
       updateCity.name = this.nameUpdate_input;
       updateCity.people = Number(this.peopleUpdate_input);
       updateCity.country = this.countryUpdate_input;

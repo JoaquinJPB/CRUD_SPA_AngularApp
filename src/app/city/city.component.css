@@ -1,6 +1,7 @@
 
 h1{
     color: #e91e63;
+    font-family: 'Ubuntu', sans-serif !important;
 }
 
 .city-form{
@@ -42,4 +43,8 @@ th,td{
 
 .section-form{
     margin-top: 5rem;
+}
+
+input{
+    color: white;
 }

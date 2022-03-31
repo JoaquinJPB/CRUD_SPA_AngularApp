@@ -25,29 +25,29 @@
             <h1 color="primary">Update City</h1>
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>ID</mat-label>
-                <input matInput type="text" name="city" value="" disabled>
+                <input matInput type="text" name="id" value="{{id_count}}" disabled>
             </mat-form-field>
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Name of the City</mat-label>
-                <input matInput type="text" name="city" value="" [(ngModel)]="nameUpdate_input" required>
+                <input matInput type="text" name="city_update"  [(ngModel)]="nameUpdate_input" required>
             </mat-form-field>
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>People</mat-label>
-                <input matInput type="number" name="people" value="" [(ngModel)]="peopleUpdate_input" required>
+                <input matInput type="number" name="people_update"  [(ngModel)]="peopleUpdate_input" required>
             </mat-form-field>
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Country Associated</mat-label>
-                <input matInput type="text" name="country" value="" [(ngModel)]="countryUpdate_input" required>
+                <input matInput type="text" name="country_update" [(ngModel)]="countryUpdate_input" required>
             </mat-form-field>
             <div>
-                <button mat-raised-button color="primary" (click)="updateCity(1)">Update</button>
+                <button mat-raised-button color="primary" (click)="updateCity(id_count)">Update</button>
                 <button mat-raised-button color="accent" (click)="disableUpdateView()">Cancel</button>
             </div>
         </form>
     </div>
     <div>
         <h1 *ngIf="cities.length === 0">
-            No existe ninguna ciudad
+            No city exists
         </h1>
         <table *ngIf="cities.length > 0">
             <thead>
@@ -61,7 +61,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let city of cities">
-                    <td>{{city.id}}</td>
+                    <td id="{{city.id}}">{{city.id}}</td>
                     <td>{{city.name}}</td>
                     <td>{{city.people}}</td>
                     <td>{{city.country}}</td>
@@ -70,7 +70,7 @@
                             <mat-icon (click)="deleteCity(city.id)">delete</mat-icon>
                         </button>
                         <button mat-icon-button class="example-icon">
-                            <mat-icon (click)="updateView()">edit</mat-icon>
+                            <mat-icon (click)="updateView(city.id)">edit</mat-icon>
                         </button>
                     </td>
                 </tr>
