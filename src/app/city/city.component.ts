@@ -15,6 +15,8 @@ interface City{
 
 export class CityComponent implements OnInit {
 
+  update: Boolean = false;
+
   cities: Array<City> = [
     {
       id: 1,
@@ -42,6 +44,10 @@ export class CityComponent implements OnInit {
   country_input: string = "";
   id_count: number = 4;
 
+  nameUpdate_input: string = "";
+  peopleUpdate_input: string = "";
+  countryUpdate_input: string = "";
+
   constructor() { }
 
   ngOnInit(): void {
@@ -61,6 +67,24 @@ export class CityComponent implements OnInit {
 
   deleteCity(id: number) : void {
     this.cities = this.cities.filter((city) => city.id != id);
+  }
+
+  updateView(): void{
+    this.update = true;
+  }
+
+  disableUpdateView(): void{
+    this.update = false;
+  }
+
+  updateCity(id: number): void {
+    let updateCity = this.cities.find((city) => city.id === id);
+    if (updateCity !== undefined) {
+      updateCity.name = this.nameUpdate_input;
+      updateCity.people = Number(this.peopleUpdate_input);
+      updateCity.country = this.countryUpdate_input;
+      this.disableUpdateView();
+    }
   }
 
 }

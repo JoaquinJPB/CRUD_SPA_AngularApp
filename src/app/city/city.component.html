@@ -20,6 +20,31 @@
             </div>
         </form>
     </div>
+    <div *ngIf="update === true">
+        <form class="example-form city-form">
+            <h1 color="primary">Update City</h1>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>ID</mat-label>
+                <input matInput type="text" name="city" value="" disabled>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Name of the City</mat-label>
+                <input matInput type="text" name="city" value="" [(ngModel)]="nameUpdate_input" required>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>People</mat-label>
+                <input matInput type="number" name="people" value="" [(ngModel)]="peopleUpdate_input" required>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Country Associated</mat-label>
+                <input matInput type="text" name="country" value="" [(ngModel)]="countryUpdate_input" required>
+            </mat-form-field>
+            <div>
+                <button mat-raised-button color="primary" (click)="updateCity(1)">Update</button>
+                <button mat-raised-button color="accent" (click)="disableUpdateView()">Cancel</button>
+            </div>
+        </form>
+    </div>
     <div>
         <h1 *ngIf="cities.length === 0">
             No existe ninguna ciudad
@@ -31,7 +56,7 @@
                     <th>City</th>
                     <th>People</th>
                     <th>Country</th>
-                    <th>Action</th>
+                    <th colspan="2">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -43,6 +68,9 @@
                     <td> 
                         <button mat-icon-button class="example-icon">
                             <mat-icon (click)="deleteCity(city.id)">delete</mat-icon>
+                        </button>
+                        <button mat-icon-button class="example-icon">
+                            <mat-icon (click)="updateView()">edit</mat-icon>
                         </button>
                     </td>
                 </tr>
